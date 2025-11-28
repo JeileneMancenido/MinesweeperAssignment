@@ -1,0 +1,52 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.minesweeper;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+/**
+ *
+ * @author j.mancenido
+ */
+
+
+//TODO: declare fields - 1. integer field that represents number of rows/colums (9x9)
+//                       2. integer field that represent number of mines (10 mines) 
+//                       3. 2d int array which the grid of numbers represent surrounding mines
+
+
+
+
+public class Minesweeper {
+    int numRows = 9;
+    int numCols = 9;
+    int numMines = 10;
+    
+    
+    public Minesweeper() { // opens up frame
+        JFrame frame = new JFrame("Minesweeper");
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Dimension dm = new Dimension(1000,1000);
+        
+        JPanel gamePanel = new JPanel();
+        GridLayout gl = new GridLayout(numRows,numCols);
+        gamePanel.setLayout(gl);
+        for (int i = 0; i < 81; i++) {
+            MSButton button = new MSButton();
+            gamePanel.add(button); 
+        }
+        frame.add(gamePanel,BorderLayout.SOUTH);
+        frame.pack();
+    }
+    
+    public static void main(String[] args) {
+        Minesweeper game = new Minesweeper();
+    }
+}
